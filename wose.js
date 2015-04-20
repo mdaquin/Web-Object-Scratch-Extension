@@ -1,11 +1,17 @@
 (function(ext) {
+    // basic function to define the scratch extension
     ext._shutdown = function() {};
     ext._getStatus = function() {return {status: 2, msg: 'Ready'};};
+    
+    // variables
     var uris=new Array();
     var props=new Array();
     var un="";
     var pw="";
 
+    // the main function making an AJAX call at the
+    // URL (at index u) and getting the value of the
+    // property (JSONPath) at index p
     ext.get_value=function(p,u,cb) {
         $.ajax({
             url:uris[u],
@@ -35,6 +41,7 @@
     ext.set_uname=function(u){un=u};
     ext.set_pass=function(p){pw=p};
 
+    // definition of extension (scratch blocks)
     var descriptor = {
         blocks: [
             [' ', 'set address of object %n to %s', 'set_uri', 1, 'https://data.beta.mksmart.org/entity/'],
