@@ -19,8 +19,8 @@
                 var st="data";
                 if (props[p].indexOf("[")!=0) st+='.';
                 st+=props[p];
-                console.log(st);
                 value=eval(st);
+                console.log(url+" "+st+" "+value);
                 cb(value);
             },
             error: function(jqXHR, textStatus, errorThrown){
