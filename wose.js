@@ -24,7 +24,7 @@
                 cb(value);
             },
             error: function(jqXHR, textStatus, errorThrown){
-                cb(textStatus+" "+errorThrown);
+                cb(url+"::"+textStatus+" "+errorThrown);
             },
             username: un,
             password: pw,
