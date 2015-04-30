@@ -13,6 +13,7 @@
     // URL (at index u) and getting the value of the
     // property (JSONPath) at index p
     ext.get_value=function(p,u,cb) {
+        console.log("calling "+uris[u]);
         $.ajax({
             url:uris[u],
             success: function(data) {
@@ -20,11 +21,11 @@
                 if (props[p].indexOf("[")!=0) st+='.';
                 st+=props[p];
                 value=eval(st);
-                console.log(url+" "+st+" "+value);
+                console.log(st+" "+value);
                 cb(value);
             },
             error: function(jqXHR, textStatus, errorThrown){
-                cb(url+"::"+textStatus+" "+errorThrown);
+                cb(textStatus+" "+errorThrown);
             },
             username: un,
             password: pw,
